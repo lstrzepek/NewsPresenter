@@ -1,0 +1,10 @@
+﻿<UserControl x:Class="EtherSoftware.NewsPresenter.View.Component.CategoryContainer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:c="clr-namespace:EtherSoftware.NewsPresenter.View.Component">
+    <StackPanel Name="categoryList">
+        <StackPanel.ContextMenu>
+            <c:CategoryContainerMenu x:Name="menu" />
+        </StackPanel.ContextMenu>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,14 @@
+﻿<TabItem x:Class="EtherSoftware.NewsPresenter.View.Component.NewsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <DockPanel LastChildFill="True">
+            <ScrollViewer DockPanel.Dock="Top" >
+                <ListView Name="newsList" BorderBrush="LightBlue" BorderThickness="1"/>
+            </ScrollViewer>
+            <GridSplitter/>
+            <ScrollViewer>
+                <FlowDocument Name="newsContent"/>
+            </ScrollViewer>
+
+        </DockPanel>
+</TabItem>

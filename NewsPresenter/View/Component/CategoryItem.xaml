@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="EtherSoftware.NewsPresenter.View.Component.CategoryItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:c="clr-namespace:EtherSoftware.NewsPresenter.View.Component">
+    <Expander Name="category">
+        <Expander.ContextMenu>
+            <c:CategoryItemMenu x:Name="menu"/>
+        </Expander.ContextMenu>
+        <ListView Name="publishersList" BorderBrush="LightBlue" BorderThickness="1" SelectionMode="Single">
+
+        </ListView>
+    </Expander>
+</UserControl>

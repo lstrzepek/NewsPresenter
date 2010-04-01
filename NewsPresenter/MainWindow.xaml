@@ -1,0 +1,11 @@
+﻿<Window x:Class="EtherSoftware.NewsPresenter.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:c="clr-namespace:EtherSoftware.NewsPresenter.View.Component"
+    Title="NewsPresenter" Height="600" Width="800">
+    <DockPanel LastChildFill="True">
+        <c:MainMenu x:Name="mainMenu" DockPanel.Dock="Top" Width="auto" Height="25"/>
+        <c:CategoryContainer x:Name="categoryContainer" DockPanel.Dock="Left" Width="200" Height="auto"/>
+        <c:NewsViewContainer x:Name="newsViewContainer"/>
+    </DockPanel>
+</Window>

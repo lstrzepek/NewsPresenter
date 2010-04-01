@@ -1,0 +1,32 @@
+﻿<Window x:Class="EtherSoftware.NewsPresenter.View.Component.SubscribeWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="SubscribeWindow" Height="180" Width="480">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80" />
+            <ColumnDefinition Width="20.296*" />
+            <ColumnDefinition Width="101*" />
+            <ColumnDefinition Width="97*" />
+            <ColumnDefinition Width="19.483*" />
+            <ColumnDefinition Width="97*" />
+            <ColumnDefinition Width="12.91*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="14" />
+            <RowDefinition Height="26" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="26" />
+            <RowDefinition Height="26*" />
+            <RowDefinition Height="26" />
+            <RowDefinition Height="13" />
+        </Grid.RowDefinitions>
+        <Label Name="sourceLabel" Grid.Row="1" HorizontalContentAlignment="Right">Source:</Label>
+        <TextBox Name="sourceValue" Grid.ColumnSpan="4" Grid.Row="1" Grid.Column="2" TextChanged="sourceValue_TextChanged" />
+        <Label Name="categoryLabel" Grid.Row="2" Margin="0,10.508,0,0.168" Grid.RowSpan="2" HorizontalContentAlignment="Right">Category:</Label>
+        <ComboBox Name="categoriesCombo" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" SelectionChanged="categoriesCombo_SelectionChanged" />
+        <Button Grid.Column="5" Grid.Row="3" Name="newCategoryButton">_New category</Button>
+        <Button Grid.Column="5" Grid.Row="5" Name="cancelButton" IsCancel="True" Click="cancelButton_Click">_Cancel</Button>
+        <Button Grid.Column="3" Grid.Row="5" Name="subscribeButton" IsDefault="True" IsEnabled="False" Click="subscribeButton_Click">_Subscribe</Button>
+    </Grid>
+</Window>

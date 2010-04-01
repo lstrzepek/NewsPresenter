@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{82D467DA-BB91-4153-9F4F-6BA13A67F342}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EtherSoftware.NewsPresenter</RootNamespace>
+    <AssemblyName>NewsPresenter</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PureMVC.DotNET.35, Version=3.0.0.0, Culture=neutral, PublicKeyToken=9c0aeba5d5e58cc6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\PureMVC.DotNET.35.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationFacade.cs" />
+    <Compile Include="Controller\ConfigPrepCommand.cs" />
+    <Compile Include="Controller\CreateCategoryCommand.cs" />
+    <Compile Include="Controller\ModelPrepCommand.cs" />
+    <Compile Include="Controller\StartupCommand.cs" />
+    <Compile Include="Controller\SubscribeCommand.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DataObject\SubscribeDataObject.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\CategoryContainerMediator.cs" />
+    <Compile Include="View\CategoryContainerMenuMediator.cs" />
+    <Compile Include="View\CategoryWindowMediator.cs" />
+    <Compile Include="View\Component\CategoryContainer.xaml.cs">
+      <DependentUpon>CategoryContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Component\CategoryContainerMenu.xaml.cs">
+      <DependentUpon>CategoryContainerMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Component\CategoryItem.xaml.cs">
+      <DependentUpon>CategoryItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Component\CategoryItemMenu.xaml.cs">
+      <DependentUpon>CategoryItemMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Component\CategoryWindow.xaml.cs">
+      <DependentUpon>CategoryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Component\MainMenu.xaml.cs">
+      <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Component\NewsView.xaml.cs">
+      <DependentUpon>NewsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Component\NewsViewContainer.xaml.cs">
+      <DependentUpon>NewsViewContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Component\SubscribeWindow.xaml.cs">
+      <DependentUpon>SubscribeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainMenuMediator.cs" />
+    <Compile Include="View\NewsViewContainerMediator.cs" />
+    <Compile Include="View\SubscribeWindowMediator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+	<ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Component\CategoryContainer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Component\CategoryContainerMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Component\CategoryItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Component\CategoryItemMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Component\CategoryWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Component\MainMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Component\NewsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Component\NewsViewContainer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Component\SubscribeWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NewsPresenter.Common\NewsPresenter.Common.csproj">
+      <Project>{B4D2C590-49C2-40EA-8916-809D06C96A54}</Project>
+      <Name>NewsPresenter.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NewsPresenter.Persistence\NewsPresenter.Persistence.csproj">
+      <Project>{D03BF525-CE8F-46FF-98A8-AD3492F6342E}</Project>
+      <Name>NewsPresenter.Persistence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NewsPresenter.Services\NewsPresenter.Services.csproj">
+      <Project>{019CE448-865F-47C3-BE06-FF589D181620}</Project>
+      <Name>NewsPresenter.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
