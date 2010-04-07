@@ -3,7 +3,7 @@ using PureMVC.Patterns;
 
 namespace EtherSoftware.NewsPresenter.Controller
 {
-    public class ConfigPrepCommand : SimpleCommand
+    class ConfigPrepCommand : SimpleCommand
     {
         public override void Execute(INotification notification)
         {

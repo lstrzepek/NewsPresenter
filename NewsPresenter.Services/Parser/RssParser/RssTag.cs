@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace EtherSoftware.NewsPresenter.Parser.RssParser {
+﻿
+namespace EtherSoftware.NewsPresenter.Service.Parser.RssParser
+{
     public class RssTag {
         public const string Rss = "rss";
         public const string Channel = "channel";

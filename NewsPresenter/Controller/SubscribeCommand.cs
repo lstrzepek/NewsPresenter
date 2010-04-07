@@ -1,13 +1,12 @@
 ﻿using EtherSoftware.NewsPresenter.Common;
-using EtherSoftware.NewsPresenter.Parser;
+using EtherSoftware.NewsPresenter.Model.DataObject;
+using EtherSoftware.NewsPresenter.Services;
 using PureMVC.Interfaces;
 using PureMVC.Patterns;
-using EtherSoftware.NewsPresenter.Services;
-using EtherSoftware.NewsPresenter.Model.DataObject;
 
 namespace EtherSoftware.NewsPresenter.Controller
 {
-    public class SubscribeCommand : SimpleCommand, ICommand
+    class SubscribeCommand : SimpleCommand, ICommand
     {
         public override void Execute(INotification notification)
         {
@@ -15,8 +14,7 @@ namespace EtherSoftware.NewsPresenter.Controller
                 PublisherService publisherService = new PublisherService();
                 SubscribeDataObject sdo = notification.Body as SubscribeDataObject;
                 Publisher publisher = publisherService.CreatePublisher(sdo.Source);
-                publisher.Category = new Category();
-                publisher.Category.Name = sdo.Category;
+                publisher.Category = sdo.Category;
                 Facade.SendNotification(ApplicationFacade.AddPublisher, publisher);
             }
         }

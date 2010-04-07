@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Xml;
 using EtherSoftware.NewsPresenter.Common;
 
-namespace EtherSoftware.NewsPresenter.Parser.AtomParser {
+namespace EtherSoftware.NewsPresenter.Service.Parser.AtomParser {
     public class AtomParser : IParser {
         public Publisher ParsePublisher(XmlDocument document) {
             Publisher publisher = null;
@@ -23,7 +21,6 @@ namespace EtherSoftware.NewsPresenter.Parser.AtomParser {
                     Message message;
                     for (int i = 0; i < entries.Count; i++) {
                         message = new Message();
-                        message.Id = i;
                         message.Name = ParserUtility.GetValueOfElement((XmlElement)entries.Item(i), AtomTag.Title);
                         message.Address = ParserUtility.GetValueOfAtribute((XmlElement)entries.Item(i), AtomTag.Link, "href");
                         string desc = ParserUtility.GetValueOfElement((XmlElement)entries.Item(i), AtomTag.Summary);

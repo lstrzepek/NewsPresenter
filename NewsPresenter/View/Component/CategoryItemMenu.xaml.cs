@@ -20,9 +20,5 @@ namespace EtherSoftware.NewsPresenter.View.Component {
         public CategoryItemMenu() {
             InitializeComponent();
         }
-
-        private void subscribeMenuItem_Click(object publisher, RoutedEventArgs e) {
-
-        }
     }
 }

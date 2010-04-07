@@ -2,15 +2,19 @@
 using PureMVC.Interfaces;
 using PureMVC.Patterns;
 
-namespace EtherSoftware.NewsPresenter.View {
-    public class CategoryContainerMenuMediator : Mediator, IMediator {
+namespace EtherSoftware.NewsPresenter.View
+{
+    class CategoryContainerMenuMediator : Mediator
+    {
 
-        public CategoryContainerMenuMediator(CategoryContainerMenu categoryContainerMenu) {
+        public CategoryContainerMenuMediator(CategoryContainerMenu categoryContainerMenu)
+        {
             this.categoryContainerMenu = categoryContainerMenu;
             this.categoryContainerMenu.newCategoryFileMenu.Click += new System.Windows.RoutedEventHandler(newCategoryFileMenu_Click);
         }
 
-        void newCategoryFileMenu_Click(object publisher, System.Windows.RoutedEventArgs e) {
+        void newCategoryFileMenu_Click(object publisher, System.Windows.RoutedEventArgs e)
+        {
             Facade.SendNotification(ApplicationFacade.CreateCategoryWindow);
         }
 

@@ -5,7 +5,8 @@ using System.Text;
 using System.Xml;
 using EtherSoftware.NewsPresenter.Common;
 
-namespace EtherSoftware.NewsPresenter.Parser {
+namespace EtherSoftware.NewsPresenter.Service.Parser
+{
     interface IParser {
         Publisher ParsePublisher(XmlDocument document);
     }

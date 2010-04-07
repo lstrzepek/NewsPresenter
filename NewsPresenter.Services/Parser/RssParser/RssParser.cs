@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Xml;
 using EtherSoftware.NewsPresenter.Common;
 
-namespace EtherSoftware.NewsPresenter.Parser.RssParser {
-    public class RssParser : IParser {
-        public Publisher ParsePublisher(XmlDocument document) {
+namespace EtherSoftware.NewsPresenter.Service.Parser.RssParser
+{
+    public class RssParser : IParser
+    {
+        public Publisher ParsePublisher(XmlDocument document)
+        {
             Publisher publisher = new Publisher();
             XmlElement root = document.DocumentElement;
             if (root.Name.Equals(RssTag.Rss)) {
@@ -27,7 +28,7 @@ namespace EtherSoftware.NewsPresenter.Parser.RssParser {
                             message.Publisher = publisher;
                             message.Name = ParserUtility.GetValueOfElement((XmlElement)items.Item(i), RssTag.Title);
                             message.Address = ParserUtility.GetValueOfElement((XmlElement)items.Item(i), RssTag.Link);
-                            message.Value = ParserUtility.GetValueOfElement((XmlElement)items.Item(i), RssTag.Description);
+                            message.Value = HTMLConverter.HtmlToXamlConverter.ConvertHtmlToXaml(ParserUtility.GetValueOfElement((XmlElement)items.Item(i), RssTag.Description), false);
                             message.PublishDate = DateTime.Parse(ParserUtility.GetValueOfElement((XmlElement)items.Item(i), RssTag.PublishDate));
                             message.Author = ParserUtility.GetValueOfElement((XmlElement)items.Item(i), RssTag.Author);
                             message.Viewed = false;

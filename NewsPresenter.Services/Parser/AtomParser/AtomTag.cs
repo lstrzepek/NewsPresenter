@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace EtherSoftware.NewsPresenter.Parser.AtomParser {
+﻿
+namespace EtherSoftware.NewsPresenter.Service.Parser.AtomParser
+{
     public class AtomTag {
         public const string Feed = "feed";
         public const string Channel = "channel";

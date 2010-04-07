@@ -1,8 +1,10 @@
 ﻿using System;
 
-namespace EtherSoftware.NewsPresenter.Common {
-    public class Message {
-        public int Id { get; set; }
+namespace EtherSoftware.NewsPresenter.Common
+{
+    public class Message : IServiceObject
+    {
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Value { get; set; }
         public DateTime PublishDate { get; set; }
@@ -11,7 +13,8 @@ namespace EtherSoftware.NewsPresenter.Common {
         public bool Viewed { get; set; }
         public Publisher Publisher { get; set; }
 
-        public override string ToString() {
+        public override string ToString()
+        {
             return Name;
         }
     }

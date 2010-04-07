@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace EtherSoftware.NewsPresenter.Parser
+namespace EtherSoftware.NewsPresenter.Service.Parser
 {
     sealed class ParserFactory
     {

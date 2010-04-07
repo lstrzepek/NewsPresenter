@@ -2,71 +2,82 @@
 using System.Linq;
 using System.Windows.Controls;
 using EtherSoftware.NewsPresenter.Common;
+using System;
 
-namespace EtherSoftware.NewsPresenter.View.Component {
+namespace EtherSoftware.NewsPresenter.View.Component
+{
     /// <summary>
     /// Interaction logic for CategoryList.xaml
     /// </summary>
-    public partial class CategoryContainer : UserControl {
-        public CategoryContainer() {
+    public partial class CategoryContainer : UserControl
+    {
+        public CategoryContainer()
+        {
             InitializeComponent();
-            categories = new Dictionary<string, CategoryItem>();
+            categories = new Dictionary<Guid, CategoryItem>();
         }
 
-        public void AddCategory(string categoryName) {
-            if (!this.categories.Keys.Contains(categoryName)) {
-                var category = new CategoryItem();
-                category.CategoryName = categoryName;
-                category.SelectedPublisherChanged += new SelectedPublisherChangedEventHandler(category_SelectedPublisherChanged);
-                categories.Add(categoryName, category);
-                this.categoryList.Children.Add(category);
+        public CategoryItem AddCategory(Category category)
+        {
+            if (!this.categories.Keys.Contains(category.Id)) {
+                var categoryItem = new CategoryItem();
+                categoryItem.Category = category;
+                categoryItem.SelectedPublisherChanged += new SelectedPublisherChangedEventHandler(category_SelectedPublisherChanged);
+                categories.Add(category.Id, categoryItem);
+                this.categoryList.Children.Add(categoryItem);
+                return categoryItem;
+            } else {
+                return this.categories[category.Id];
             }
         }
 
-        public void AddCategories(IEnumerable<Category> categories) {
+        public void AddCategories(IEnumerable<Category> categories)
+        {
             foreach (var category in categories) {
-                AddCategory(category.Name);
-            }
-            
-        }
-
-        public void RenameCategory(string categoryName, string newName) {
-            if (this.categories.Keys.Contains(categoryName)) {
-                var category = this.categories[categoryName];
-                category.CategoryName = newName;
-                category.SelectedPublisherChanged += new SelectedPublisherChangedEventHandler(category_SelectedPublisherChanged);
-                this.categories.Remove(categoryName);
-                this.categories.Add(newName, category);
+                AddCategory(category);
             }
         }
 
-        public void RemoveCategory(string categoryName) {
-            if (this.categories.Keys.Contains(categoryName)) {
-                var category = this.categories[categoryName];
-                this.categoryList.Children.Remove(category);
-                this.categories.Remove(categoryName);
+        public void RenameCategory(Category category)
+        {
+            if (this.categories.Keys.Contains(category.Id)) {
+                var categoryItem = this.categories[category.Id];
+                categoryItem.Category = category;
+                categoryItem.SelectedPublisherChanged += new SelectedPublisherChangedEventHandler(category_SelectedPublisherChanged);
             }
         }
 
-        public void AddToCategory(string categoryName, Publisher publisher) {
-            if (this.categories.Keys.Contains(categoryName)) {
-                var category = this.categories[categoryName];
-                category.AddPublisher(publisher);
+        public void RemoveCategory(Category category)
+        {
+            if (this.categories.Keys.Contains(category.Id)) {
+                var categoryItem = this.categories[category.Id];
+                this.categoryList.Children.Remove(categoryItem);
+                this.categories.Remove(category.Id);
             }
         }
 
-        public IList<string> GetCategories() {
-            return categories.Keys.ToList();
+        public void AddToCategory(Category category, Publisher publisher)
+        {
+            if (this.categories.Keys.Contains(category.Id)) {
+                var categoryItem = this.categories[category.Id];
+                categoryItem.AddPublisher(publisher);
+            }
+        }
+
+        public IList<Category> GetCategories()
+        {
+            return (from CategoryItem ci in categories.Values select ci.Category).ToList<Category>();
         }
 
         public event SelectionChangedEventHandler SelectionChanged;
 
-        private void category_SelectedPublisherChanged(CategoryItem obj, Publisher sndr) {
+        private void category_SelectedPublisherChanged(CategoryItem obj, Publisher sndr)
+        {
             if (SelectionChanged != null)
                 SelectionChanged(obj, sndr);
         }
 
-        private IDictionary<string, CategoryItem> categories;
+        private IDictionary<Guid, CategoryItem> categories;
     }
     public delegate void SelectionChangedEventHandler(CategoryItem category, Publisher publisher);
 }

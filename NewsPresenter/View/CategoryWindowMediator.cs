@@ -1,33 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using PureMVC.Patterns;
-using PureMVC.Interfaces;
+﻿using System.Collections.Generic;
 using EtherSoftware.NewsPresenter.View.Component;
+using PureMVC.Interfaces;
+using PureMVC.Patterns;
+using EtherSoftware.NewsPresenter.Common;
 
-namespace EtherSoftware.NewsPresenter.View {
-    public class CategoryWindowMediator : Mediator, IMediator {
+namespace EtherSoftware.NewsPresenter.View
+{
+    class CategoryWindowMediator : Mediator
+    {
 
-        public override string MediatorName {
-            get {
+        public override string MediatorName
+        {
+            get
+            {
                 return "CategoryWindowMediator";
             }
         }
 
-        public override IList<string> ListNotificationInterests() {
+        public override IList<string> ListNotificationInterests()
+        {
             return new List<string>() {
                 ApplicationFacade.CreateCategoryWindow,
                 ApplicationFacade.RenameCategoryWindow
             };
         }
 
-        public override void HandleNotification(INotification notification) {
+        public override void HandleNotification(INotification notification)
+        {
             switch (notification.Name) {
                 case ApplicationFacade.CreateCategoryWindow:
                     categoryWindow = new CategoryWindow();
-                    if (categoryWindow.ShowDialog().GetValueOrDefault() == true)
-                        Facade.SendNotification(ApplicationFacade.AddCategory, categoryWindow.CategoryName);
+                    if (categoryWindow.ShowDialog().GetValueOrDefault() == true) {
+                        Category category = new Category();
+                        category.Name = categoryWindow.CategoryName;
+                        Facade.SendNotification(ApplicationFacade.CreateCategory, category);
+                    }
                     break;
                 case ApplicationFacade.RenameCategoryWindow:
                     categoryWindow = new CategoryWindow();

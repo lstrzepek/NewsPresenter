@@ -20,8 +20,10 @@ namespace EtherSoftware.NewsPresenter
 
         public const string CreateCategoryWindow = "CreateCategoryWindow";
         public const string RenameCategoryWindow = "RenameCategoryWindow";
-
+        
         public const string AddCategory = "AddCategory";
+        public const string CreateCategory = "CreateCategory";
+        public const string InitCategory = "InitCategory";
         public const string RefreshCategory = "RefreshCategory";
         public const string RenameCategory = "RenameCategory";
 

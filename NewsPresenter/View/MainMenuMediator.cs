@@ -1,31 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using PureMVC.Patterns;
+﻿using EtherSoftware.NewsPresenter.View.Component;
 using PureMVC.Interfaces;
-using EtherSoftware.NewsPresenter.View.Component;
+using PureMVC.Patterns;
 
-namespace EtherSoftware.NewsPresenter.View {
-    public class MainMenuMediator : Mediator, IMediator {
+namespace EtherSoftware.NewsPresenter.View
+{
+    class MainMenuMediator : Mediator
+    {
 
         public MainMenuMediator(MainMenu mainMenu)
-            : base() {
+            : base()
+        {
             this.mainMenu = mainMenu;
             this.mainMenu.subscribeFileMenu.Click += new System.Windows.RoutedEventHandler(subscribeFileMenu_Click);
             this.mainMenu.newCategoryFileMenu.Click += new System.Windows.RoutedEventHandler(newCategoryFileMenu_Click);
         }
 
-        void newCategoryFileMenu_Click(object publisher, System.Windows.RoutedEventArgs e) {
+        void newCategoryFileMenu_Click(object publisher, System.Windows.RoutedEventArgs e)
+        {
             Facade.SendNotification(ApplicationFacade.CreateCategoryWindow);
         }
 
-        void subscribeFileMenu_Click(object publisher, System.Windows.RoutedEventArgs e) {
+        void subscribeFileMenu_Click(object publisher, System.Windows.RoutedEventArgs e)
+        {
             Facade.SendNotification(ApplicationFacade.SubscribeWindow);
         }
 
-        public override string MediatorName {
-            get {
+        public override string MediatorName
+        {
+            get
+            {
                 return "MainMenuMediator";
             }
         }

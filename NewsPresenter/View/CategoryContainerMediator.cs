@@ -3,11 +3,10 @@ using EtherSoftware.NewsPresenter.Common;
 using EtherSoftware.NewsPresenter.View.Component;
 using PureMVC.Interfaces;
 using PureMVC.Patterns;
-using EtherSoftware.NewsPresenter.Persistence;
 
 namespace EtherSoftware.NewsPresenter.View
 {
-    public class CategoryContainerMediator : Mediator, IMediator
+    class CategoryContainerMediator : Mediator
     {
 
         public CategoryContainerMediator(CategoryContainer categoryList)
@@ -30,7 +29,8 @@ namespace EtherSoftware.NewsPresenter.View
                 ApplicationFacade.SubscribeWindow,
                 ApplicationFacade.AddCategory,
                 ApplicationFacade.RenameCategory,
-                ApplicationFacade.AddPublisher
+                ApplicationFacade.AddPublisher,
+                ApplicationFacade.InitCategory
             };
         }
 
@@ -43,21 +43,25 @@ namespace EtherSoftware.NewsPresenter.View
                         this.categoryList.GetCategories());
                     break;
                 case ApplicationFacade.AddCategory:
-                    this.categoryList.AddCategory(notification.Body as string);
+                    this.categoryList.AddCategory(notification.Body as Category);
                     Facade.SendNotification(
                         ApplicationFacade.RefreshCategory,
                         this.categoryList.GetCategories());
                     break;
                 case ApplicationFacade.RenameCategory:
-                    KeyValuePair<string, string> val = (KeyValuePair<string, string>)notification.Body;
-                    this.categoryList.RenameCategory(val.Key, val.Value);
+                    Category category = notification.Body as Category;
+                    this.categoryList.RenameCategory(category);
                     Facade.SendNotification(
                         ApplicationFacade.RefreshCategory,
                         this.categoryList.GetCategories());
                     break;
                 case ApplicationFacade.AddPublisher:
                     Publisher publisher = notification.Body as Publisher;
-                    this.categoryList.AddToCategory(publisher.Category.Name, publisher);
+                    this.categoryList.AddToCategory(publisher.Category, publisher);
+                    break;
+                case ApplicationFacade.InitCategory:
+                    IList<Category> categories = notification.Body as IList<Category>;
+                    this.categoryList.AddCategories(categories);
                     break;
                 default:
                     break;

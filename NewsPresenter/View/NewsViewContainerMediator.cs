@@ -1,32 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using PureMVC.Patterns;
-using PureMVC.Interfaces;
-using EtherSoftware.NewsPresenter.View.Component;
+﻿using System.Collections.Generic;
 using EtherSoftware.NewsPresenter.Common;
+using EtherSoftware.NewsPresenter.View.Component;
+using PureMVC.Interfaces;
+using PureMVC.Patterns;
 
-namespace EtherSoftware.NewsPresenter.View {
-    public class NewsViewContainerMediator : Mediator, IMediator {
+namespace EtherSoftware.NewsPresenter.View
+{
+    class NewsViewContainerMediator : Mediator
+    {
 
-        public NewsViewContainerMediator(NewsViewContainer newsViewContainer) {
+        public NewsViewContainerMediator(NewsViewContainer newsViewContainer)
+        {
             this.newsViewContainer = newsViewContainer;
         }
 
-        public override string MediatorName {
-            get {
+        public override string MediatorName
+        {
+            get
+            {
                 return "NewsViewContainerMediator";
             }
         }
 
-        public override IList<string> ListNotificationInterests() {
+        public override IList<string> ListNotificationInterests()
+        {
             return new List<string>(){
                 ApplicationFacade.ShowPublisher
             };
         }
 
-        public override void HandleNotification(INotification notification) {
+        public override void HandleNotification(INotification notification)
+        {
             switch (notification.Name) {
                 case ApplicationFacade.ShowPublisher:
                     this.newsViewContainer.ShowView(notification.Body as Publisher);

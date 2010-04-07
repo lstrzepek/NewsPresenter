@@ -64,18 +64,24 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="ApplicationFacade.cs" />
+    <Compile Include="Controller\AddPublisherCommand.cs" />
     <Compile Include="Controller\ConfigPrepCommand.cs" />
-    <Compile Include="Controller\CreateCategoryCommand.cs" />
+    <Compile Include="Controller\ControllerPrepCommand.cs" />
+    <Compile Include="Controller\AddCategoryCommand.cs" />
     <Compile Include="Controller\ModelPrepCommand.cs" />
+    <Compile Include="Controller\ViewPrepCommand.cs" />
     <Compile Include="Controller\StartupCommand.cs" />
     <Compile Include="Controller\SubscribeCommand.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\CategoryProxy.cs" />
     <Compile Include="Model\DataObject\SubscribeDataObject.cs" />
+    <Compile Include="Model\PublisherProxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\CategoryContainerMediator.cs" />
     <Compile Include="View\CategoryContainerMenuMediator.cs" />
+    <Compile Include="View\CategoryItemMenuMediator.cs" />
     <Compile Include="View\CategoryWindowMediator.cs" />
     <Compile Include="View\Component\CategoryContainer.xaml.cs">
       <DependentUpon>CategoryContainer.xaml</DependentUpon>
@@ -109,7 +115,7 @@
     <Compile Include="View\SubscribeWindowMediator.cs" />
   </ItemGroup>
   <ItemGroup>
-	<ApplicationDefinition Include="App.xaml">
+    <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>

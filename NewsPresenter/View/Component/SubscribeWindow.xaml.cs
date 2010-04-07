@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using EtherSoftware.NewsPresenter.Common;
 
 namespace EtherSoftware.NewsPresenter.View.Component {
     /// <summary>
@@ -26,25 +27,28 @@ namespace EtherSoftware.NewsPresenter.View.Component {
             }
         }
 
-        public string Category {
+        public Category Category
+        {
             get {
-                return this.categoriesCombo.SelectedValue as string;
+                return this.categoriesCombo.SelectedValue as Category;
             }
         }
 
-        public void AddCategory(string name) {
-            this.categoriesCombo.Items.Add(name);
+        public void AddCategory(Category category)
+        {
+            this.categoriesCombo.Items.Add(category);
         }
 
-        public void SetCategories(IList<string> categories) {
+        public void SetCategories(IList<Category> categories) {
             foreach (var cat in categories) {
                 this.categoriesCombo.Items.Add(cat);
             }
         }
 
-        public void SelectCategory(string categoryName){
-            if(this.categoriesCombo.Items.Contains(categoryName))
-            this.categoriesCombo.SelectedItem = categoryName;
+        public void SelectCategory(Category category)
+        {
+            if(this.categoriesCombo.Items.Contains(category))
+            this.categoriesCombo.SelectedItem = category;
         }
 
         public void ClearCategories() {
