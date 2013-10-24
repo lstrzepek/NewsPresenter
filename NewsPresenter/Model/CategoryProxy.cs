@@ -3,19 +3,20 @@ using EtherSoftware.NewsPresenter.Common;
 using EtherSoftware.NewsPresenter.Persistence;
 using PureMVC.Patterns;
 using System;
+using PureMVC.Interfaces;
 
 namespace EtherSoftware.NewsPresenter.Model
 {
-    class CategoryProxy : Proxy
+    public class CategoryProxy : Proxy, IProxy
     {
-        //public CategoryProxy(Repository<Category> categoryRepository)
-        //{
-        //    this.categoryRepository = categoryRepository; 
-        //}
+        public new static string NAME = "CategoryProxy";
+        public CategoryProxy(Repository<Category> repository)
+            : base(NAME, repository)
+        { }
 
         public override void OnRegister()
         {
-            categoryRepository = new Repository<Category>();
+            categoryRepository = Data as Repository<Category>;
             publisherRepository = new PublisherRepository();
 
             categories = categoryRepository.GetAll();
@@ -30,7 +31,7 @@ namespace EtherSoftware.NewsPresenter.Model
             categoryRepository.Save(category);
         }
 
-        public string Name { get { return "CategoryProxy"; } }
+        //public string Name { get { return "CategoryProxy"; } }
         public Guid NextId { get { return categoryRepository.NextId; } }
         public IList<Category> Categories { get { return this.categories; } }
 

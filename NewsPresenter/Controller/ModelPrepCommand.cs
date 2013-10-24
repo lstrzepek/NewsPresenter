@@ -1,6 +1,8 @@
 ﻿using PureMVC.Interfaces;
 using PureMVC.Patterns;
 using EtherSoftware.NewsPresenter.Model;
+using EtherSoftware.NewsPresenter.Persistence;
+using EtherSoftware.NewsPresenter.Common;
 
 namespace EtherSoftware.NewsPresenter.Controller
 {
@@ -8,7 +10,8 @@ namespace EtherSoftware.NewsPresenter.Controller
     {
         public override void Execute(INotification notification)
         {
-            Facade.RegisterProxy(new CategoryProxy());
+            var categoryRepository = new Repository<Category>();
+            Facade.RegisterProxy(new CategoryProxy(categoryRepository));
             Facade.RegisterProxy(new PublisherProxy());
         }
     }

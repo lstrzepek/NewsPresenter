@@ -10,7 +10,7 @@ namespace EtherSoftware.NewsPresenter.Controller
     {
         public override void Execute(INotification notification)
         {
-            CategoryProxy categoryProxy =(CategoryProxy) Facade.RetrieveProxy(CategoryProxy.NAME);
+            CategoryProxy categoryProxy = (CategoryProxy)Facade.RetrieveProxy(CategoryProxy.NAME);
             Category category = notification.Body as Category;
             category.Id = categoryProxy.NextId;
             categoryProxy.Store(category);

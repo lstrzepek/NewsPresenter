@@ -7,9 +7,10 @@ namespace EtherSoftware.NewsPresenter.Controller
         protected override void InitializeMacroCommand()
         {
             AddSubCommand(typeof(ConfigPrepCommand));
+            AddSubCommand(typeof(ModelPrepCommand));
             AddSubCommand(typeof(ViewPrepCommand));
             AddSubCommand(typeof(ControllerPrepCommand));
-            AddSubCommand(typeof(ModelPrepCommand));
+            
         }
     }
 }
