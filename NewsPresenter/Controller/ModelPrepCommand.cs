@@ -11,8 +11,10 @@ namespace EtherSoftware.NewsPresenter.Controller
         public override void Execute(INotification notification)
         {
             var categoryRepository = new Repository<Category>();
+            var publishersRepository = new Repository<Publisher>();
+
             Facade.RegisterProxy(new CategoryProxy(categoryRepository));
-            Facade.RegisterProxy(new PublisherProxy());
+            Facade.RegisterProxy(new PublisherProxy(publishersRepository));
         }
     }
 }

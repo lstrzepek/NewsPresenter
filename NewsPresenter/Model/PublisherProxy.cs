@@ -6,19 +6,18 @@ using System.Collections.Generic;
 
 namespace EtherSoftware.NewsPresenter.Model
 {
-    class PublisherProxy : Proxy
+    public class PublisherProxy : Proxy
     {
-        public override void OnRegister()
-        {
-            publisherRepository = new Repository<Publisher>();
-        }
+        public new static string NAME = "PublisherProxy";
+        public PublisherProxy(Repository<Publisher> repository)
+            : base(NAME, repository)
+        { publisherRepository = repository; }
 
         public void Store(Publisher publisher)
         {
             publisherRepository.Save(publisher);
         }
 
-        public string Name { get { return "PublisherProxy"; } }
         public Guid NextId { get { return publisherRepository.NextId; } }
 
         private Repository<Publisher> publisherRepository;

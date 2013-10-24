@@ -9,7 +9,7 @@ namespace EtherSoftware.NewsPresenter.Controller
     {
         public override void Execute(INotification notification)
         {
-            PublisherProxy publisherProxy = (PublisherProxy)Facade.RetrieveProxy(CategoryProxy.NAME);
+            PublisherProxy publisherProxy = (PublisherProxy)Facade.RetrieveProxy(PublisherProxy.NAME);
             Publisher publisher = notification.Body as Publisher;
             publisher.Id = publisherProxy.NextId;
             publisherProxy.Store(publisher);
