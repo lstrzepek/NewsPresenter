@@ -1,14 +1,14 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsPresenter", "NewsPresenter\NewsPresenter.csproj", "{82D467DA-BB91-4153-9F4F-6BA13A67F342}"
-EndProject
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{AE9625CD-5FB7-41FD-BF95-5B7AC966FD7B}"
 	ProjectSection(SolutionItems) = preProject
 		Libraries\Db4objects.Db4o.dll = Libraries\Db4objects.Db4o.dll
 		Libraries\Db4objects.Db4o.Linq.dll = Libraries\Db4objects.Db4o.Linq.dll
 		Libraries\PureMVC.DotNET.35.dll = Libraries\PureMVC.DotNET.35.dll
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsPresenter", "NewsPresenter\NewsPresenter.csproj", "{82D467DA-BB91-4153-9F4F-6BA13A67F342}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsPresenter.Services", "NewsPresenter.Services\NewsPresenter.Services.csproj", "{019CE448-865F-47C3-BE06-FF589D181620}"
 EndProject
