@@ -6,6 +6,10 @@ using EtherSoftware.NewsPresenter.Common;
 namespace EtherSoftware.NewsPresenter.Service.Parser.AtomParser {
     public class AtomParser : IParser {
         public Publisher ParsePublisher(XmlDocument document) {
+            
+            if (document == null)
+                throw new ArgumentNullException("document");
+
             Publisher publisher = null;
             XmlElement root = document.DocumentElement;
             if (root.Name.Equals(AtomTag.Feed)) {
