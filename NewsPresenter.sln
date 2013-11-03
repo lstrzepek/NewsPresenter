@@ -1,13 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{AE9625CD-5FB7-41FD-BF95-5B7AC966FD7B}"
-	ProjectSection(SolutionItems) = preProject
-		Libraries\Db4objects.Db4o.dll = Libraries\Db4objects.Db4o.dll
-		Libraries\Db4objects.Db4o.Linq.dll = Libraries\Db4objects.Db4o.Linq.dll
-		Libraries\PureMVC.DotNET.35.dll = Libraries\PureMVC.DotNET.35.dll
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsPresenter", "NewsPresenter\NewsPresenter.csproj", "{82D467DA-BB91-4153-9F4F-6BA13A67F342}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsPresenter.Services", "NewsPresenter.Services\NewsPresenter.Services.csproj", "{019CE448-865F-47C3-BE06-FF589D181620}"
@@ -15,6 +8,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsPresenter.Persistence", "NewsPresenter.Persistence\NewsPresenter.Persistence.csproj", "{D03BF525-CE8F-46FF-98A8-AD3492F6342E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsPresenter.Common", "NewsPresenter.Common\NewsPresenter.Common.csproj", "{B4D2C590-49C2-40EA-8916-809D06C96A54}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CD6D7B94-8182-46D8-B11E-5D3AE22E37D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsPresenter.Tests.Services", "NewsPresenter.Tests.Services\NewsPresenter.Tests.Services.csproj", "{20B3210F-E351-41E9-96F9-55B7C8DF433F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,8 +35,15 @@ Global
 		{B4D2C590-49C2-40EA-8916-809D06C96A54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4D2C590-49C2-40EA-8916-809D06C96A54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4D2C590-49C2-40EA-8916-809D06C96A54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20B3210F-E351-41E9-96F9-55B7C8DF433F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20B3210F-E351-41E9-96F9-55B7C8DF433F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20B3210F-E351-41E9-96F9-55B7C8DF433F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20B3210F-E351-41E9-96F9-55B7C8DF433F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{20B3210F-E351-41E9-96F9-55B7C8DF433F} = {CD6D7B94-8182-46D8-B11E-5D3AE22E37D2}
 	EndGlobalSection
 EndGlobal
