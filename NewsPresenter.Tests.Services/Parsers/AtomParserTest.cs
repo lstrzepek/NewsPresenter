@@ -24,12 +24,11 @@ namespace EtherSoftware.NewsPresenter.Tests.Services.Parsers
         [Fact]
         public void Returns_not_empty_publisher_when_xml_has_single_entry()
         {
-            // Arrange
             var parser = new AtomParser();
             var xmlDocument = XmlHelper.GetAtomSingleEntryDocument();
-            // Act
+            
             var publisher = parser.ParsePublisher(xmlDocument);
-            // Assert
+            
             Assert.NotNull(publisher);
             Assert.Equal("Example Feed", publisher.Name);
         }
