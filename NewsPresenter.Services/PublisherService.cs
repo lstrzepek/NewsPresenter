@@ -1,7 +1,7 @@
-﻿using System;
-using System.Xml;
-using EtherSoftware.NewsPresenter.Common;
+﻿using EtherSoftware.NewsPresenter.Common;
 using EtherSoftware.NewsPresenter.Service.Parser;
+using System;
+using System.Xml;
 
 namespace EtherSoftware.NewsPresenter.Services
 {
